@@ -1,0 +1,96 @@
+{% extends 'useradmin/base.html' %}
+
+{% block title %}
+    <title>编辑文章</title>
+{% endblock %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="/static/blog_system/css/editarticle.css">
+{% endblock %}
+
+
+{% block main %}
+    <span class="hidden" target-nav="useradmin-nav-article"></span>
+
+    <!-- 编辑文章的表单 -->
+    <form action="" method="post" class="form" enctype="multipart/form-data" style="margin-bottom: 200px;">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="article-img">文章题图</label><br>
+            {% if article_img_url %}
+                <img src="{% url 'media' article_img_url %}" alt="" id="article_img" class="img-thumbnail"
+                     onclick="(function (){$('#article_file').click()})()">
+            {% else %}
+                <!-- 默认的文章题图说明图片,硬编码 -->
+                <img src="/media/article_imgs/default_article_img.jpg" alt="" id="article_img" class="img-thumbnail"
+                     onclick="(function (){$('#article_file').click()})()">
+            {% endif %}
+            <input type="file" id="article_file" name="article_img" class="hidden">
+        </div>
+
+        <div class="form-group"><label for="title">文章标题</label>
+            <input maxlength="32" type="text" name="title" id="title" class="form-control" value="{{ article.title }}"
+                   required>
+        </div>
+
+        <div class="form-group">
+            <label for="editor_id">文章内容</label>
+            <textarea required id="editor_id" name="content" minlength="100" style="width:100%;height:500px;">
+                {{ article.content }}
+            </textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="category">所属分类</label>
+            <select name="category" id="category" class="form-control" required>
+                <!-- 展示当前文章所在的分类 -->
+                {% for category in category_list %}
+                    {% if category == article.category %}
+                        <option selected value="{{ category.nid }}">{{ category.name }}</option>
+                    {% else %}
+                        <option value="{{ category.nid }}">{{ category.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+
+        <div id="content-alert" class="alert alert-warning hidden"></div>
+        <div class="form-group pull-right">
+            <span class="submit-error"></span>
+            <a href="{% url 'show_articles' %}" class="btn btn-danger">取消</a>
+            <button type="reset" class="btn btn-warning">重置内容</button>
+            <button id="submit-btn" type="submit" class="btn btn-success">提交</button>
+        </div>
+        <br>
+    </form>
+
+{% endblock %}
+
+
+{% block script %}
+    <!-- kindeditor文章编辑器引入 -->
+    <script src="/static/Editor/kindeditor-4.1.11-zh-CN/kindeditor-all-min.js"></script>
+    <script>
+        KindEditor.ready(function (K) {
+            window.editor = K.create('#editor_id');
+        });
+
+        // 如果没有输入任何文章内容，不允许提交
+        $('#submit-btn').bind('click', function () {
+            let $contentAlert = $('#content-alert');
+            $contentAlert.addClass('hidden');
+            window.editor.sync();
+            let content = $('#editor_id').val().trim();
+            if (!content) {
+                $contentAlert.text('文章内容不可为空').removeClass('hidden');
+                return false;
+            } else if (content.length < 100) {
+                // 字数不能少于100
+                $contentAlert.text('文章字数不能少于100字').removeClass('hidden');
+                return false;
+            }
+        })
+    </script>
+{% endblock %}

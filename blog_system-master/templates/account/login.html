@@ -1,0 +1,62 @@
+{% extends 'account/base.html' %}
+{% block title %}
+
+    <title>登录</title>
+{% endblock %}
+
+
+{% block main %}
+    <div class="signin-switch">
+        <div class="login-link-div">
+            <a href="{% url 'login' %}" class="login-link link-active">登录</a>
+        </div>
+
+        <div class="dot-sep">
+            ..........
+        </div>
+
+        <div class="register-link-div">
+            <a href="{% url 'register' %}" class="register-link">注册</a>
+        </div>
+    </div>
+
+    <form>
+        {% csrf_token %}
+
+        {% for field in login_form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+            </div>
+        {% endfor %}
+
+        <!-- 单独配置验证码输入框和验证码图片区域 -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group" id="validate-div">
+                    <label for="validate_code"> 验证码: </label>
+                    <input type="text" name="validate_code" id="validate_code" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <!-- 验证码图片 -->
+                <img id="validate_code_img" src="{% url 'validate_img' %}" alt="">
+            </div>
+        </div>
+
+
+        <div class="form-foot clearfix clear">
+            <div class="login-control form-group pull-right">
+                <span id="form_error"></span>
+                <button type="reset" class="btn btn-warning">重置</button>
+                <button type="button" class="btn btn-success" id="login-btn">登录</button>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+
+{% block script %}
+    <script src="/static/blog_system/js/login_ajax.js"></script>
+{% endblock %}

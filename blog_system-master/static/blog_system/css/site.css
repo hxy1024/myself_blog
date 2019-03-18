@@ -1,0 +1,178 @@
+body, p, li, ul, div, img {
+    margin: 0;
+    padding: 0;
+}
+
+/*设置3列顶部margin-top空间一致*/
+.profile {
+    margin-top: 22px;
+}
+
+ul, li {
+    text-decoration: none;
+    list-style: none;
+}
+
+/*整体字体样式*/
+.site-nav,
+.site-list,
+.site-main {
+    font-size: 15px;
+    color: #1a1a1a;
+    overflow: auto;
+    font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;;
+}
+
+.site-nav {
+    text-align: center;
+    position: relative;
+    padding: 0 !important;
+    color: white;
+    background-color: rgba(20, 20, 20, 0.8);
+}
+
+.site-list {
+    background-color: rgba(20, 20, 20, 0.05);
+}
+
+/*文章目录链接*/
+.article-link {
+    display: block;
+}
+
+/*文章概览面板样式*/
+.article-panel {
+    padding-left: 10px;
+    border-left: 5px solid rgba(20, 20, 20, 0.2);
+    margin-bottom: 20px;
+}
+
+/*被选中的文章面板的样式*/
+.selected-article-panel {
+    border-left: 5px solid rgba(20, 20, 20, 0.8);
+}
+
+.article-panel:hover {
+    cursor: pointer;
+    border-left: 5px solid rgba(20, 20, 20, 0.8);
+}
+
+.article-panel-create-time {
+    font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;;
+    color: #999;
+    font-size: 13px;
+}
+
+/*文章面板文章标题样式*/
+.article-panel-title {
+    font-size: 17px;
+    font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;;
+}
+
+/*分类标签被选中*/
+.nav-active {
+    background-color: rgba(20, 20, 20, 0.6);
+    color: white;
+}
+
+.panel-main {
+    margin-top: 5px;
+}
+
+/*列表栏文章属性图标*/
+.article-panel-attrs {
+    margin-right: 30px;
+    font-size: 12px;
+    color: #999;
+    font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;;
+}
+
+/*文章属性数值*/
+.article-attr-count {
+    margin-left: 5px;
+}
+
+/*分类标签项样式*/
+.category-items {
+    margin-top: 30px;
+}
+
+.category-item {
+    font-weight: 400;
+    line-height: 1.42;
+    height: 40px;
+    padding: 10px 40px;
+    font-size: 15px;
+    font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;;
+}
+
+.category-item:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgba(20, 20, 20, 0.6);
+}
+
+/*文章左侧控制区域*/
+.side-left-control {
+    position: fixed;
+    left: 45px;
+    bottom: 0;
+    width: 15%;
+    padding-left: 10px;
+}
+
+/*站点设置区域*/
+.settings {
+    position: absolute;
+    bottom: 15px;
+    left: 5px;
+    width: 90%;
+}
+
+.setting-link {
+    display: inline-block;
+    padding: 10px;
+}
+
+.setting-link > i {
+    color: rgba(20, 20, 20, 0.7);
+}
+
+.setting-link:hover {
+    cursor: pointer;
+}
+
+/*返回主页和去往后台管理的图标样式*/
+.setting-icon {
+    font-size: 20px;
+    color: rgba(20, 20, 20, 0.15);
+}
+
+/*文章链接被选中 此项目暂时未被使用*/
+.articleLinkSelected {
+    background-color: green;
+}
+
+/*个人详情说明样式*/
+.profile {
+    margin-bottom: 10px;
+}
+
+/*个人头像样式*/
+#avatar {
+    width: 100px;
+    height: 100px;
+}
+
+/*个人头像模态框中预览样式*/
+#pre-avatar {
+    width: 80px;
+    height: 80px;
+}
+
+/*被搜索选中时文本的样式*/
+.search-target {
+    color: red;
+    font-size: 18px;
+    background-color: yellow;
+}

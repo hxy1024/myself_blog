@@ -1,0 +1,53 @@
+{% extends 'account/base.html' %}
+{% block title %}
+    <title>注册</title>
+{% endblock %}
+
+{% block main %}
+
+    <div class="signin-switch">
+        <div class="login-link-div">
+            <a href="{% url 'login' %}" class="login-link">登录</a>
+        </div>
+
+        <div class="dot-sep">
+            ..........
+        </div>
+
+        <div class="register-link-div">
+            <a href="{% url 'register' %}" class="register-link link-active">注册</a>
+        </div>
+    </div>
+    <form>
+        {% csrf_token %}
+
+        {% for field in register_form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.help_text %}
+                    <span class="help_text">{{ field.help_text }}</span>
+                {% endif %}
+                <!-- 增加一个空格以占据错误消息的空白页面空间，当有错误消息的时候不会改变布局位置 -->
+                <span class="field_error_msg pull-right">&nbsp;</span>
+            </div>
+        {% endfor %}
+
+
+        <div class="form-foot clear clearfix">
+            <div class="register-control pull-right">
+                <button type="reset" class="btn btn-warning">重置</button>
+                <button type="button" class="btn btn-success" id="register-btn">注册</button>
+            </div>
+
+        </div>
+
+    </form>
+
+
+{% endblock %}
+
+{% block script %}
+
+    <script src="/static/blog_system/js/register_ajax.js"></script>
+{% endblock %}

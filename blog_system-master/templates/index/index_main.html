@@ -1,0 +1,99 @@
+<!-- 首页主体内容 -->
+{% for article in article_list %}
+
+    {% if article.img %}
+        <div class="article-panel">
+            <!-- 文章主要内容 -->
+            <div class="article-main">
+
+                <div class="article-head">
+                    <a class="article-title"
+                       href="{% url 'article' article.blog.path article.category.name article.nid %}">{{ article.title }}
+                    </a>
+                </div>
+
+                <div class="article-body">
+                    <div class="article-description"> {{ article.content|truncatechars:100 }} </div>
+                </div>
+
+                <div class="article-foot">
+                <span class="article-author-panel">
+                    <!-- 作者博客站点链接 -->
+                    <a href="{% url 'site' article.blog.path %}"> {{ article.blog.user.username }} </a>
+                </span>&nbsp;
+
+                    <span class="article-create-time-panel">发布于 {{ article.create_time|date:'Y-m-d' }}</span>&nbsp;&nbsp;
+
+                    <span class="article-comment-panel">
+                        <span class="glyphicon glyphicon-comment"></span>
+                        <span class="comment-count">{{ article.comment_count }}</span>
+                    </span>&nbsp;&nbsp;
+
+                    <span class="article-like-panel">
+                        <span class="glyphicon glyphicon-heart"></span>
+                        <span class="like-count">{{ article.like_count }}</span>
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- 文章配图 -->
+            <div class="index-article-img">
+                <img style="width: 125px; height: 110px;" src="{% url 'media' article.img %}" alt="" id="article_img"
+                     class="img-rounded">
+            </div>
+
+
+            <hr>
+        </div>
+
+    {% else %}
+
+
+        <div class="article-panel">
+            <!-- 文章主要内容 -->
+            <div class="article-main">
+
+                <div class="article-head">
+                    <a class="article-title"
+                       href="{% url 'article' article.blog.path article.category.name article.nid %}">{{ article.title }}</a>
+                </div>
+
+                <div class="article-body">
+                    <div class="article-description"> {{ article.content|truncatechars:100 }} </div>
+                </div>
+
+                <div class="article-foot">
+                <span class="article-author-panel">
+                    <!-- 作者博客站点链接 -->
+                    <a href="{% url 'site' article.blog.path %}"> {{ article.blog.user.username }} </a>
+                </span>&nbsp;
+
+                    <span class="article-create-time-panel">发布于 {{ article.create_time|date:'Y-m-d' }}</span>&nbsp;&nbsp;
+
+                    <span class="article-comment-panel">
+                        <span class="glyphicon glyphicon-comment"></span>
+                        <span class="comment-count">{{ article.comment_count }}</span>
+                    </span>&nbsp;&nbsp;
+
+                    <span class="article-like-panel">
+                        <span class="glyphicon glyphicon-heart"></span>
+                        <span class="like-count">{{ article.like_count }}</span>
+                    </span>
+
+                </div>
+
+            </div>
+
+            <hr>
+        </div>
+
+    {% endif %}
+{% endfor %}
+
+
+<!-- 返回顶部 -->
+<span id="index-back-to-top" class="hidden" title="返回顶部">
+        <i class="glyphicon glyphicon glyphicon-menu-up"></i>
+</span>

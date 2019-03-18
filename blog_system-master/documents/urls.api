@@ -1,0 +1,35 @@
+博客系统url设计规划
+
+通用路由：
+    /: 网站首页
+    /admin: 管理员后台页面
+    /media: 用户media文件
+
+account:  account模块
+        /account/register --> 注册
+        /account/login --> 登录
+        /account/logout --> 注销
+
+blog:   blog模块
+        /blog/zlw10100  --> 个人站点访问
+        /blog/zlw10100/article/category/article_nid  --> 文章访问
+
+useradmin: useradmin模块
+        /useradmin/home --> 后台管理首页
+        /useradmin/show_articles/ --> 查看文章信息
+        /useradmin/add_article  --> 增加文章
+        /useradmin/edit_article/article_nid --> 编辑文章
+        /useradmin/delete_article/article_nid --> 删除文章
+        /useradmin/show_categorys/ --> 查看分类信息
+        /useradmin/add_category/ --> 增加分类
+        /useradmin/edit_categroy/category_nid  --> 编辑分类
+        /useradmin/delete_category/category_nid --> 删除分类
+        /useradmin/edit_profile/  --> 编辑个人详情
+
+query: query模块(ajax请求)
+        /query/validate_img --> 请求验证码图片
+        /query/like/1  --> 请求某一篇文章的喜欢和不喜欢
+        /query/article_list --> 请求文章列表
+        /query/add_comment  --> 请求增加评论
+        /query/comment_list --> 请求所有评论数据
+        /query/article_attrs/2 --> 请求某一篇文章的属性数据

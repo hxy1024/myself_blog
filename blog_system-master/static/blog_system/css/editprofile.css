@@ -1,0 +1,17 @@
+#avatar_img {
+    width: 80px;
+    height: 80px;
+}
+
+#avatar_img:hover {
+    cursor: pointer;
+}
+
+#article_img {
+    width: 200px;
+    height: 80px;
+}
+
+#article_img:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,86 @@
+<div class="article-top">
+    <h3 class="article-title">{{ article.title }}</h3>
+
+    <div class="article-attrs-span">
+        <span class="article-attrs glyphicon glyphicon-eye-open"><span
+                class="article-attr-count article-panel-view-count"></span></span>
+        <span class="article-attrs glyphicon glyphicon-thumbs-up"><span
+                class="article-attr-count article-panel-like-count"></span></span>
+        <span class="article-attrs glyphicon glyphicon-thumbs-down"><span
+                class="article-attr-count article-panel-dislike-count"></span></span>
+        <span class="article-attrs glyphicon glyphicon-comment"><span
+                class="article-attr-count article-panel-comment-count"></span></span>
+    </div>
+</div>
+
+
+<div class="article-area">
+
+    <div class="article-head">
+        <span class="hidden" id="article-nid">{{ article.nid }}</span>
+        <span id="article-category" class="hidden">{{ article.category.name }}</span>
+    </div>
+
+
+    <div class="article-body">
+        {% if article_img_url %}
+            <div class="article-img" style="margin-bottom: 30px;">
+                <img style="height: 300px;" src="{% url 'media' article_img_url %}" alt="" id="article_img"
+                     class="img-thumbnail">
+            </div>
+        {% endif %}
+
+        {{ article.content|safe }}
+    </div>
+
+    <div class="article-foot"></div>
+
+    <!-- 评论区域 -->
+    <div class="article-comment">
+        {% include 'article/comment.html' %}
+    </div>
+</div>
+
+<!-- 右侧边栏对文章的控制操作区域 -->
+<div id="control-panel" class="control-panel">
+
+    {% if like_flag == True %}
+        <!-- 喜欢/不喜欢操作 -->
+        <div class="sub-control" title="赞同">
+            <span class="glyphicon glyphicon-thumbs-up sub-control-icon like-span click-like"></span>
+        </div>
+        <div class="sub-control" title="反对">
+            <span class="glyphicon glyphicon-thumbs-down sub-control-icon dislike-span"></span>
+        </div>
+    {% elif like_flag == False %}
+        <!-- 喜欢/不喜欢操作 -->
+        <div class="sub-control" title="赞同">
+            <span class="glyphicon glyphicon-thumbs-up sub-control-icon like-span"></span>
+        </div>
+        <div class="sub-control" title="反对">
+            <span class="glyphicon glyphicon-thumbs-down sub-control-icon dislike-span click-dislike"></span>
+        </div>
+    {% else %}
+        <!-- 喜欢/不喜欢操作 -->
+        <div class="sub-control" title="赞同">
+            <span class="glyphicon glyphicon-thumbs-up sub-control-icon like-span"></span>
+        </div>
+        <div class="sub-control" title="反对">
+            <span class="glyphicon glyphicon-thumbs-down sub-control-icon dislike-span"></span>
+        </div>
+    {% endif %}
+
+    <!-- 返回顶部 -->
+    <div class="sub-control" id="control-rate">
+        <span class="sub-control-icon control-top-rate" id="control-top-rate">0%</span>
+    </div>
+    <!-- 返回顶部 -->
+    <div class="sub-control hidden" id="control-back-to-top">
+        <span class="glyphicon-menu-up glyphicon sub-control-icon"></span>
+    </div>
+
+
+</div>
+
+<!-- 文章左栏的控制区域 -->
+<div class="side-left-control"></div>

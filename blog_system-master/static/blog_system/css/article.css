@@ -1,0 +1,179 @@
+h1, h2, h3 {
+    margin-top: 0;
+}
+
+#label-like:hover,
+#label-dislike:hover {
+    cursor: pointer;
+}
+
+/*文章头部样式*/
+.article-top {
+    background-color: white;
+    padding-bottom: 10px;
+    box-shadow: 0 2px 7px -3px rgba(20, 20, 20, 0.3);
+    position: fixed;
+    padding-top: 20px;
+    font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;;
+}
+
+/*文章顶部标题和属性数据的样式*/
+.article-attrs-span {
+    font-size: 20px;
+}
+
+/*文章主体属性图标*/
+.article-attrs {
+    margin-right: 30px;
+    font-size: 15px;
+    color: #999;
+}
+
+.comment-add-area {
+    margin-top: 70px;
+}
+
+/*评论树的样式*/
+#comment-tree {
+    margin-left: -70px;
+}
+
+.comment-item {
+    margin-left: 50px;
+    border-left: 3px solid rgba(20, 20, 20, 0.1);
+    padding: 3px 20px;
+}
+
+.reply-toggle {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #969696;
+}
+
+.article-foot {
+    margin-bottom: 30px;
+}
+
+.article-bottom {
+
+    margin-bottom: 80px;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+}
+
+.comment-attrs-div {
+    font-size: 15px;
+    color: #333;
+    position: relative;
+    top: 10px;
+    display: inline-block;
+}
+
+.floot-count, .comment-created-at {
+    color: #969696;
+    font-size: 12px;
+}
+
+.reply-icon:hover {
+    cursor: pointer;
+}
+
+/*回复评论的样式*/
+.comment-reply-area {
+    margin: 10px 0;
+}
+
+.comment-body {
+    margin-top: 10px;
+}
+
+.comment-content {
+    font-size: 16px;
+    font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+    color: #333;
+}
+
+.article-body {
+    margin-top: 130px;
+}
+
+#control-panel {
+    position: fixed;
+    right: 35px;
+    bottom: 220px;
+    background-color: rgba(20, 20, 20, 0.05);
+
+}
+
+#control-top-rate {
+    font-size: 17px;
+    font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;;
+    font-weight: 700;
+}
+
+.sub-control {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.sub-control:hover {
+    background-color: rgba(20, 20, 20, 0.2);
+    color: white;
+}
+
+.sub-control-icon {
+    font-size: 25px;
+    line-height: 50px;
+}
+
+.sub-control:hover {
+    cursor: pointer;
+}
+
+/*返回顶部的样式*/
+#back-to-top {
+    position: fixed;
+    right: 35px;
+    bottom: 80px;
+    background-color: rgba(20, 20, 20, 0.6);
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Lato, "PingFang SC", "Microsoft YaHei", sans-serif;;
+}
+
+#back-to-top:hover {
+    cursor: pointer;
+}
+
+.top-rate {
+    width: 40px;
+    display: inline-block;
+}
+
+.hover-span {
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+#label-like, #label-dislike {
+    margin-left: 5px;
+}
+
+/*点赞和反对时候的样式*/
+.click-like {
+    color: green;
+
+}
+
+.click-dislike {
+    color: red;
+}
+
+#comment-collapse-btn {
+    margin-bottom: 20px;
+}

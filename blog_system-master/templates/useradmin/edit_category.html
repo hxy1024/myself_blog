@@ -1,0 +1,61 @@
+{% extends 'useradmin/base.html' %}
+
+{% block title %}
+    <title>编辑分类</title>
+{% endblock %}
+
+{% block main %}
+
+    <span class="hidden" target-nav="useradmin-nav-category"></span>
+
+    <!-- 编辑文章的表单 -->
+    <form style="margin-bottom: 200px;">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="name">分类名称</label>
+            <input maxlength="16" type="text" name="name" id="name" class="form-control" value="{{ category.name }}"
+                   required>
+        </div>
+
+        <div class="alert alert-warning hidden" id="edit-category-error"></div>
+
+        <div class="form-group pull-right">
+            <a href="{% url 'show_categorys' %}" class="btn btn-danger">取消</a>
+            <button type="reset" class="btn btn-warning">重置内容</button>
+            <button id="submit-btn" type="submit" class="btn btn-success">提交</button>
+        </div>
+        <br>
+    </form>
+
+{% endblock %}
+
+
+{% block script %}
+    <script>
+        // 使用ajax提交数据，服务器返回错误或者下一跳地址
+        $('#submit-btn').bind('click', function () {
+            let data = {
+                name: $('#name').val().trim(),
+                csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
+            };
+
+            $.ajax({
+                url: '',
+                type: 'POST',
+                data: data,
+                success: function (response_data) {
+                    let url = response_data.url;
+                    let msg = response_data.msg;
+                    if (!url) {
+                        $('#edit-category-error').text(msg).removeClass('hidden');
+                    } else {
+                        location.href = url;
+                    }
+                }
+            });
+            return false;
+        })
+    </script>
+{% endblock %}
+

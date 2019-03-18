@@ -1,0 +1,88 @@
+body, a, p, div, ul, li, img, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+/*被搜索选中时文本的样式*/
+.search-target {
+    color: red;
+    font-size: 18px;
+    background-color: yellow;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.index_main {
+    margin-top: 80px;
+}
+
+.index-nav {
+    font-family: -apple-system, SF UI Text, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;;
+    background-color: white;
+    box-shadow: 0 1px 10px -3px rgba(20, 20, 20, 0.3);
+}
+
+.article-panel {
+    position: relative;
+}
+
+.article-foot {
+    margin-top: 10px;
+}
+
+.article-main {
+    margin: 0 0 8px;
+    font-size: 13px;
+    line-height: 24px;
+    color: #999;
+    display: inline-block;
+    width: 85%;
+    padding-right: 15px;
+}
+
+.article-title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    font-family: -apple-system, SF UI Display, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;;
+    color: rgba(20, 20, 20, 0.7);
+}
+
+.article-body {
+    margin-top: 10px;
+}
+
+.index-article-img {
+    position: absolute;
+    top: 2px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+/*返回顶部的样式*/
+#index-back-to-top {
+    position: fixed;
+    right: 35px;
+    bottom: 120px;
+    background-color: rgba(20, 20, 20, 0.05);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    line-height: 50px;
+}
+
+#index-back-to-top:hover {
+    cursor: pointer;
+    background-color: rgba(20, 20, 20, 0.2);
+    color: white;
+}
+
+#avatar {
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    margin-right: 20px;
+}

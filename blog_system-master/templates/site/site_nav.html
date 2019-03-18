@@ -1,0 +1,31 @@
+<!-- 首页导航栏的单独模块 -->
+<div class="profile">
+    <a href="{% url 'site' site_path %}">
+        <img id="avatar" src="{% url 'media' profile.avatar %}" alt="" class="img-rounded">
+    </a>
+    <p id="profile-nick-name" class="hidden">{{ nick_name }}</p>
+    <p id="blog-path" class="hidden">{{ site_path }}</p>
+</div>
+
+
+<ul class="category-items text-left">
+    <!-- 存放个人博客的分类信息 -->
+    {% block category %}
+        {% for category in category_list %}
+            <li class="category-item" id="nav-category-{{ category.name }}">
+                <i class="glyphicon glyphicon-th text-left"></i>&nbsp;&nbsp;&nbsp;
+                <span class="category-name">{{ category.name }}</span>
+            </li>
+        {% endfor %}
+    {% endblock %}
+</ul>
+
+
+<div class="settings">
+    <a title="首页" class="setting-link setting-index" href="{% url 'index' %}"><i
+            class="glyphicon glyphicon-home setting-icon"></i></a>
+    <span title="隐藏" class="setting-link setting-hide-left" id="sidebar-hide-btn"><i
+            class="glyphicon glyphicon-arrow-left setting-icon"></i></span>
+    <a title="后台" class="setting-link setting-useradmin" href="{% url 'useradmin' %}"><i
+            class="glyphicon glyphicon-cog setting-icon"></i></a>
+</div>

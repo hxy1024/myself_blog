@@ -1,0 +1,55 @@
+{% extends 'useradmin/base.html' %}
+
+{% block title %}
+    <title>文章管理</title>
+{% endblock %}
+
+{% block main %}
+    <span class="hidden" target-nav="useradmin-nav-article"></span>
+
+    <!-- 文章操作区域 -->
+    <div class="row">
+        <a href="{% url 'add_article' %}" class="btn btn-success pull-left">新建文章</a>
+    </div>
+
+    <!-- 文章记录区域 -->
+    <div class="row" style="margin-top: 20px;">
+        <!-- 用表格展示所有文章记录 -->
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="record-border">序号</th>
+                <th class="record-border">编号</th>
+                <th class="record-border">标题</th>
+                <th class="record-border">创建时间</th>
+                <th class="record-border">分类</th>
+                <th class="record-border">阅读</th>
+                <th class="record-border">评论</th>
+                <th class="record-border">点赞</th>
+                <th class="record-border">反对</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <!-- 遍历文章列表 -->
+            {% for article in article_list %}
+                <!-- 一篇文章的所有数据 -->
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ article.nid }}</td>
+                    <td>{{ article.title|truncatechars:30 }}</td>
+                    <td>{{ article.create_time|date:'Y-m-d' }}</td>
+                    <td>{{ article.category.name }}</td>
+                    <td>{{ article.view_count }}</td>
+                    <td>{{ article.comment_count }}</td>
+                    <td>{{ article.like_count }}</td>
+                    <td>{{ article.dislike_count }}</td>
+                    <td><a class="btn btn-warning" href="{% url 'edit_article' article.nid %}">查看/编辑</a></td>
+                    <td><a class="btn btn-danger" href="{% url 'delete_article' article.nid %}">删除</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

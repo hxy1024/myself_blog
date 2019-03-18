@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+
+    {% endblock %}
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/blog_system/css/signin.css">
+    {% block css %}
+
+    {% endblock %}
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row all">
+        <div class="col-md-3"></div>
+        <!-- 登录页面主体 -->
+        <div class="col-md-6 main">
+
+            <div class="index-title">
+                博客园
+            </div>
+            <hr>
+
+            {% block main %}
+
+            {% endblock %}
+        </div>
+
+
+        <div class="col-md-3"></div>
+    </div>
+</div>
+
+
+<script src="/static/jquery/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+{% block script %}
+
+{% endblock %}
+</body>
+</html>

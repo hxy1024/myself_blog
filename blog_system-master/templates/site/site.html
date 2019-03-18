@@ -1,0 +1,17 @@
+{% extends 'site/site_base.html' %}
+
+
+{% block siteMain %}
+
+{% endblock %}
+
+{% block script %}
+
+    <script>
+        // 当首次载入个人站点页面的时候，以第一个默认nav-active的分类名请求文章列表
+        $(function () {
+            let $firstCategory = $($('li.category-item')[0]);
+            $firstCategory.trigger('click');
+        });
+    </script>
+{% endblock %}

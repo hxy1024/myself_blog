@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客园</title>
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap-3.3.7/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/blog_system/css/index.css">
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <div class="row">
+        {% include 'index/index_nav.html' %}
+    </div>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8 index_main">
+            {% include 'index/index_main.html' %}
+        </div>
+
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+
+<script src="/static/jquery/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+<script src="/static/bootstrap/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<!-- 主页的返回顶部 -->
+<script src="/static/blog_system/js/index_back_to_top.js"></script>
+<!-- 主页的搜索 -->
+<script src="/static/blog_system/js/index_search.js"></script>
+<!-- 页面加载完成的时候，将每一个文章面板保存title和desc以便后续搜索 -->
+<script>
+    $(function () {
+        $('.article-panel').each(function (index, panelObj) {
+            $panel = $(panelObj);
+            $panel.data('originTitle', $panel.find('a.article-title').text());
+            $panel.data('originDesc', $panel.find('div.article-description').text());
+        })
+    })
+</script>
+
+</body>
+</html>

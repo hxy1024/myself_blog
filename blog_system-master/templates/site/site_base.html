@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        <title>{{ nick_name }}</title>
+    {% endblock %}
+    <link rel="stylesheet" href="/static/blog_system/css/site.css">
+    <link rel="stylesheet" href="/static/bootstrap/bootstrap-3.3.7/css/bootstrap.css">
+    {% block css %}
+
+    {% endblock %}
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <div class="row site">
+        <div class="col-md-2 test1 site-nav">
+            {% include 'site/site_nav.html' %}
+        </div>
+        <div class="col-md-3 test2 site-list">
+            {% include 'site/site_list.html' %}
+        </div>
+        <div class="col-md-7 site-main">
+            <!-- 待后续填充主体部分 -->
+            {% block siteMain %}
+
+            {% endblock %}
+        </div>
+    </div>
+</div>
+
+
+<script src="/static/jquery/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+<script src="/static/bootstrap/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<!-- 处理site list中文章列表的ajax请求 -->
+<script src="/static/blog_system/js/query_article_list.js"></script>
+<!-- 处理博客站点页面高度的监听，调整页面尺寸 -->
+<!-- 处理博客站点左侧栏的缩进操作 -->
+<script src="/static/blog_system/js/site_page_control.js"></script>
+<!-- 点击文章概览面板的时候访问文章详情页面 -->
+<script src="/static/blog_system/js/query_article.js"></script>
+<!-- 点击文章概览面板的x会隐藏此面板 -->
+<script src="/static/blog_system/js/hide_article_panel.js"></script>
+<!-- 搜索功能 -->
+<script src="/static/blog_system/js/site_search.js"></script>
+<!-- 渲染被点击文章面板的样式 -->
+<script src="/static/blog_system/js/render_article_panel_css.js"></script>
+
+{% block script %}
+
+{% endblock %}
+</body>
+</html>

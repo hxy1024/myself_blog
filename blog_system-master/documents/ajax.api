@@ -1,0 +1,37 @@
+query目录用于处理以ajax请求的操作，主要的功能函数如下：
+
+
+# 请求验证码图片
+def validate_img(request):
+    # 获取验证码图片函数
+
+
+# 请求文章列表
+def article_list_ajax(request):
+    # 文章列表查看接口
+    处理客户端通过ajax形式发起的请求。
+    注意：此请求必须通过get请求携带请求参数--用户名以明确用户。
+    若未提供用户名，将会返回一个空数据
+
+
+# 请求对某一篇文章的点赞或者反对
+def article_like_ajax(request, nid):
+    # 文章点赞接口
+    对文章发起ajax表示喜欢或者不喜欢
+    此函数用于处理用户提交的ajax请求对文章的喜欢/不喜欢操作。
+    操作喜欢/不喜欢的用户应该是已登录用户
+
+
+# 请求增加评论
+def add_comment(request):
+
+
+# 请求评论列表
+def comment_list(request):
+    # 文章评论数据查看接口
+    此函数用于，用户以ajax提交请求，对某一篇文章的评论数据
+
+
+# 请求文章属性数据
+def article_attrs(request, nid):
+    # 根据指定的nid请求对应文章的属性数据

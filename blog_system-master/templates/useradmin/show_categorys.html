@@ -1,0 +1,46 @@
+{% extends 'useradmin/base.html' %}
+
+{% block title %}
+    <title>分类管理</title>
+{% endblock %}
+
+{% block main %}
+    <span class="hidden" target-nav="useradmin-nav-category"></span>
+
+    <!-- 分类操作区域 -->
+    <div class="row">
+        <a href="{% url 'add_category' %}" class="btn btn-success pull-left">新建分类</a>
+    </div>
+
+    <!-- 分类记录区域 -->
+    <div class="row" style="margin-top: 20px;">
+        <!-- 用表格展示所有分类记录 -->
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="record-border">序号</th>
+                <th class="record-border">编号</th>
+                <th class="record-border">分类名称</th>
+                <th class="record-border">文章数量</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <!-- 遍历分类列表 -->
+            {% for category in category_list %}
+                <!-- 一个分类的所有数据 -->
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ category.nid }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.article_count }}</td>
+                    <td><a class="btn btn-warning" href="{% url 'edit_category' category.nid %}">查看/编辑</a></td>
+                    <td><a class="btn btn-danger" href="{% url 'delete_category' category.nid %}">删除</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

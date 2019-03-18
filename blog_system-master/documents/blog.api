@@ -1,0 +1,16 @@
+blog目录用于处理站点的访问和文章的访问操作，主要的功能函数如下：
+
+
+# 首页视图函数
+def index(request):
+    # 首页视图函数，提供网站首页的处理逻辑
+
+
+# 个人站点视图函数
+def site(request, site_path):
+    # 访问个人博客站点首页的视图函数
+
+
+# 文章访问函数
+def article(request, site_path, category_name, nid):
+    # 访问文章详情页的视图函数

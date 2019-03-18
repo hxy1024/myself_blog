@@ -1,0 +1,45 @@
+{% extends 'useradmin/base.html' %}
+
+{% block title %}
+    <title>修改个人详情</title>
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/blog_system/css/editprofile.css">
+{% endblock %}
+
+{% block main %}
+    <span class="hidden" target-nav="useradmin-nav-profile"></span>
+    <div class="col-md-6">
+        <!-- 个人详情页表单 -->
+        <form action="" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+
+            <!-- 个人头像 -->
+            <div class="form-group">
+                <label for="">个人头像：</label>
+                <br>
+                <img src="{% url 'media' avatar_url %}" alt="" id="avatar_img" class="img-thumbnail"
+                     onclick="(function (){$('#avatar_file').click()})()">
+                <input type="file" id="avatar_file" name="avatar" class="hidden">
+            </div>
+
+
+            <!-- 个人详情 -->
+            {% for prof in profile_form %}
+                <div class="form-group">
+                    {{ prof.label_tag }}
+                    {{ prof }}
+                </div>
+            {% endfor %}
+
+            <div class="form-group">
+                <a href="{% url 'useradmin' %}" class="btn btn-danger">取消</a>
+                <button type="reset" class="btn btn-warning">重置内容</button>
+                <button type="submit" class="btn btn-success">提交</button>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

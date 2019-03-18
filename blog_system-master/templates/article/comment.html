@@ -1,0 +1,72 @@
+{% csrf_token %}
+
+{% if request.user.is_authenticated %}
+    <div class="comment-add-area">
+        <div class="form-group">
+            <label for="comment-add-input">新增评论：</label>
+            <input type="text" id="comment-add-input" class="form-control">
+        </div>
+        <button class="btn btn-success comment-add-btn" type="button">
+            发送
+            <span class="glyphicon glyphicon-send"></span>
+        </button>
+        <span class="reply-error"></span>
+    </div>
+
+{% else %}
+    <h3 style="margin-top: 70px;">
+        请<a href="{% url 'login' %}">登录</a>后发表评论
+    </h3>
+{% endif %}
+
+<hr>
+
+<div class="article-bottom">
+    <!-- 判断当前文章是否有评论 -->
+    <button id="comment-collapse-btn" type="button" class="btn btn-primary" data-toggle="collapse"
+            data-target="#comment-tree">
+        <span> <span id="comment-count"> {{ comment_count }} </span> 条评论被折叠 </span>
+    </button>
+
+    <ul id="comment-tree" class="collapse"></ul>
+
+</div>
+
+
+<!-- 评论项， 评论节点模板样例，用于复制 -->
+<li class="comment-item-exp hidden" id="comment-">
+    <!-- 评论头部 -->
+    <div class="comment-head">
+        <img src="" alt="" class="comment-avatar img-circle">&nbsp;
+        <div class="comment-attrs-div">
+            <span class="comment-nick-name blog-name"></span>&nbsp;&nbsp;
+            <span class="reply-to-nick-name"></span>
+            <span class="comment-username hidden"></span>
+            <br>
+            <span class="floot-count"></span>
+            <span class="comment-created-at"></span>&nbsp;&nbsp;
+            <span class="root-id hidden"></span>
+        </div>
+    </div>
+
+    <!-- 评论内容 -->
+    <div class="comment-body">
+        <p class="comment-content"></p>
+    </div>
+
+    <!-- 用于存放回复输入框 -->
+    <div class="comment-foot">
+        <span parent_id="" class="reply-toggle reply-icon">&nbsp;回复</span>&nbsp;&nbsp;
+    </div>
+</li>
+
+
+<!-- 回复评论输入框模板样例，用于复制 -->
+<div class="comment-reply-area-exp hidden comment-reply-area">
+    <div class="form-group"><input type="text" class="form-control comment-reply-input"></div>
+    <button class="btn btn-success btn-sm comment-reply-btn" type="submit">
+        发送
+        <span class="glyphicon glyphicon-send"></span>
+    </button>
+    <span class="reply-error"></span>
+</div>
